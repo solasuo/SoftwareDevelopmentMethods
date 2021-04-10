@@ -1,0 +1,11 @@
+Abbreviation;Meaning;Normal range
+B-LEUK;total white blood cell count;3.4–8.2 * 10^9/l
+B-HB;haemoglobin;women 117–155 g/l, men 134–167 g/l
+B-HKR;haematocrit, volume percentage of red blood cells in blood;women 35–46 %, men 39–50 %
+B-ERYT;erythrocyte or red blood cell count;women 3.90–5.20 * 10^12/l, men 4.25–5.70 * 10^12/l
+E-MCV;mean corpuscular volume of red cells;82–98 fl
+E-RDW;red blood cell distribution width;women below 15 %, men below 14 %
+E-MCH;mean red blood cell haemoglobin mass;27–33 pg/cell
+E-MCHC;mean corpuscular haemoglobin concentration in red blood cells;320–355 g/l
+B-TROM;thrombocyte or blood cell platelet count;150–360 x 109/l
+UNKNOWN;this blood item is not supported yet;ask your doctor
