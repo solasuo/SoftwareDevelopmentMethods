@@ -17,7 +17,7 @@ mvn test
 ```
 Generate test coverage report
 ```
-mvn jacoco: report
+mvn jacoco:report
 ```
 Generate jar
 ```
