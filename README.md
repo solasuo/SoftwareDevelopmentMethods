@@ -9,7 +9,7 @@ Progress of the application is being tracked in [spent hours](https://github.com
 
 Run the program
 ```
-mvn compile exec:java -Dexec.mainClass=ot.Bloodecode.BloodecodeApplication
+mvn compile exec:java -Dexec.mainClass=bloodecode.BloodecodeApplication
 ```
 Run tests
 ```

@@ -1,4 +1,4 @@
-package ot.Bloodecode;
+package bloodecode;
 
 import java.util.Scanner;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +21,5 @@ public class BloodecodeApplication implements CommandLineRunner {
         Scanner reader = new Scanner(System.in);
         System.out.println("Running");
         textUi.start(reader);
-    }          
-
+    }         
 }

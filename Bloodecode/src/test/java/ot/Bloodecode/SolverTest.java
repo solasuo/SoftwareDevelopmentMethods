@@ -1,6 +1,7 @@
 
 package ot.Bloodecode;
 
+import bloodecode.Solver;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -19,6 +20,8 @@ public class SolverTest {
     public void allItemsAreRead() {
         assertEquals(10, solver.getBloodItems().size());
     }  
-    
-
+    @Test
+    public void itemDescriptionIsCorrect() {
+        assertEquals("thrombocyte or blood cell platelet count", solver.findMeaning("b-trom").getExplanation());
+    }    
 }

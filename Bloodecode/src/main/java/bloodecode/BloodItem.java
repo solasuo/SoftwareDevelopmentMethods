@@ -1,4 +1,4 @@
-package ot.Bloodecode;
+package bloodecode;
 
 public class BloodItem {
     public String abbreviation;
@@ -39,5 +39,4 @@ public class BloodItem {
     public String toString() {
         return abbreviation+ ": " +explanation+ ". Normal range: " +range;
     }
-
 }
