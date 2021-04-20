@@ -18,8 +18,9 @@ public class SolverTest {
     
     @Test
     public void allItemsAreRead() {
-        assertEquals(10, solver.getBloodItems().size());
+        assertEquals(10, solver.bloodItems.size());
     }  
+    
     @Test
     public void itemDescriptionIsCorrect() {
         assertEquals("thrombocyte or blood cell platelet count", solver.findMeaning("b-trom").getExplanation());

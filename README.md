@@ -23,3 +23,7 @@ Generate jar
 ```
 mvn package
 ```
+Run Checkstyle
+```
+mvn jxr:jxr checkstyle:checkstyle
+

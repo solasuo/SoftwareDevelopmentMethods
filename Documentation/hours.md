@@ -12,4 +12,8 @@
 | 9.4.  | 3.0 | Working on various classes to make them testable, updating POM |
 | 10.4. | 5.0 | Writing tests, checking test coverage, updating hours and README |
 | 13.4. | 2.0 | Changes to user interface, tests and jacoco report |
-|Total  | 27.0 |                   |
+| 16.4. | 6.0 | Inserting notes to database function |
+| 17.4. | 7.0 | Solving sql errors, implementing checkstyle, correcting checkstyle errors |
+| 18.4. | 4.0 | Database-related issues |
+| 20.4. | 4.0 | Drawing class diagram, JavaFX revision |
+|Total  | 48.0 |                   |

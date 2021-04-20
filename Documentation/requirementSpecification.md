@@ -3,15 +3,15 @@
 ### Purpose of the application ###
 
 
-Application xx helps people interpret blood test results.  
+Bloodecode application helps people interpret blood test results.  
 
 ### Users ### 
 
 A standard user can:
-- [ ] search for the meaning of common abbreviations appearing in blood test results
+- [x] search for the meaning of common abbreviations appearing in blood test results
 - [ ] check if their results are within healthy range
 - [ ] get a standard health advice based on the result of a particular measurement, such as low hemoglobin or high blood sugar
-
+- [x] add their own notes
 
 ### Other possible functions ###
 

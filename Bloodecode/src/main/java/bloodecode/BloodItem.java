@@ -37,6 +37,6 @@ public class BloodItem {
     
     @Override
     public String toString() {
-        return abbreviation+ ": " +explanation+ ". Normal range: " +range;
+        return abbreviation + ": " + explanation + ". Normal range: " + range;
     }
 }
