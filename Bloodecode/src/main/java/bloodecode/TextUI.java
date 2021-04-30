@@ -8,9 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TextUI { 
-
     @Autowired
-    JdbcTemplate jdbctemplate;   
+    JdbcTemplate jdbctemplate;  
+    
+    @Autowired
+    SelfMonitor selfmonitor;
+    
   
     public void start(Scanner reader) throws SQLException {
         System.out.println("The application currently supports basic blood count tests: "
@@ -22,6 +25,9 @@ public class TextUI {
             System.out.println("x - quit");
             System.out.println("1 - search for an item");
             System.out.println("2 - enter your own notes");
+            System.out.println("3 - find a note");
+            System.out.println("4 - list your notes");
+            System.out.println("5 - delete a note");
             String command = reader.nextLine().trim();          
             if (command.toLowerCase().equals("x")) {
                 break;
@@ -38,22 +44,21 @@ public class TextUI {
                 int value = Integer.parseInt(reader.nextLine());
                 System.out.println("Enter the needed actions");
                 String actions = reader.nextLine();
-                SelfMonitor item = new SelfMonitor(description, value, actions);
-                addNote(item);
-                System.out.println("Added note: " + item);
+                System.out.println(selfmonitor.addNote(description, value, actions));
+            }
+            if (command.toLowerCase().equals("3")) {
+                System.out.println("Enter the key of your note");
+                int key = Integer.parseInt(reader.nextLine());
+                System.out.println(selfmonitor.readNote(key));
+            }
+            if (command.toLowerCase().equals("4")) {
+                selfmonitor.listNotes();
+            }
+            if (command.toLowerCase().equals("5")) {
+                System.out.println("Enter the key of the note you want to delete");
+                int key = Integer.parseInt(reader.nextLine());
+                selfmonitor.deleteNote(key);
             }
         }
-    }  
-    //En monen päivän väännön jälkeenkään saa metodeja toimimaan käyttöliittymän ulkopuolella. Esim. tämän metodin pitäisi
-    // olla SelfMonitor-luokassa. Ei toimi myöskään Daoja käyttäen.
-    // Tästä syystä myös testaus seisoo.
-    
-    public void addNote(SelfMonitor item) throws SQLException {
-        jdbctemplate.update("INSERT INTO Monitor"
-            + " (description, myvalue, actions)"
-            + " VALUES (?, ?, ?)",
-            item.getDescription(),
-            item.getMyValue(),
-            item.getActions());
-    }        
+    }   
 }

@@ -16,4 +16,9 @@
 | 17.4. | 7.0 | Solving sql errors, implementing checkstyle, correcting checkstyle errors |
 | 18.4. | 4.0 | Database-related issues |
 | 20.4. | 4.0 | Drawing class diagram, JavaFX revision |
-|Total  | 48.0 |                   |
+| 22.4. | 8.0 | Studied how to combine JavaFx with Spring boot application |
+| 23.4. | 4.0 | Gave up the idea of a graphic user interface |
+| 25.4. | 9.0 | Adding more UI functions. Troubleshooting tests |
+| 27.4.	| 4.0 | Troubleshooting tests |
+| 30.4. | 5.0 | Adding more UI functions. Troubleshooting tests |
+|Total  | 78.0 |                   |

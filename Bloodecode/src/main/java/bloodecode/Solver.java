@@ -21,10 +21,6 @@ public class Solver {
             throw new RuntimeException("Could not read from " + file);
         }
     }  
-      
-    public void print() {
-        System.out.println(rows);
-    }
     
     public void itemize() {
         for (int i = 1; i < rows.size(); i++) {

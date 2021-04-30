@@ -10,7 +10,7 @@ Preliminary structure of the application: [Architecture](https://github.com/sola
 
 Run the program
 ```
-mvn compile exec:java -Dexec.mainClass=bloodecode.BloodecodeApplication
+mvn spring-boot:run
 ```
 Run tests
 ```

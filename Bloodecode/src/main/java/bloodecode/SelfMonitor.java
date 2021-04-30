@@ -1,65 +1,63 @@
 package bloodecode;
 
 import java.sql.SQLException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SelfMonitor  {
-    String description;
-    Integer myValue;
-    String actions;
 
     @Autowired
-    JdbcTemplate jdbctemplate;    
+    JdbcTemplate jdbcTemplate;    
+    
+    @Autowired
+    MonitoredItemDao miDao;
     
     public SelfMonitor() {
-        
-    }
 
-    public SelfMonitor(String description, Integer myValue, String actions) {
-        this.description = description;
-        this.myValue = myValue;
-        this.actions = actions;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String item) {
-        this.description = item;
-    }
-
-    public Integer getMyValue() {
-        return myValue;
-    }
-
-    public void setMyValue(Integer myValue) {
-        this.myValue = myValue;
-    }
-
-    public String getActions() {
-        return actions;
-    }
-
-    public void setActions(String actions) {
-        this.actions = actions;
+   
+    public String addNote(String description, int value, String actions) throws SQLException {
+        MonitoredItem item = new MonitoredItem(description, value, actions);
+        miDao.create(item);
+        return ("Added note: " + item);
+    }  
+    
+    public MonitoredItem readNote(Integer key) throws SQLException {
+        int num = howManyNotes();
+        if (num >= key) {
+            MonitoredItem item = miDao.read(key);
+            return item;
+        } else {
+            System.out.println("Key not found.");
+            return null;
+        }
     }
     
-    public void addNote() throws SQLException {
-        jdbctemplate.update("INSERT INTO Monitor"
-            + " (description, myvalue, actions)"
-            + " VALUES (?, ?, ?)",
-            this.description,
-            this.myValue, 
-            this.actions);
-    }    
+    public void listNotes() throws SQLException {
+        List notes = miDao.list();
+        if (notes.size() > 0) {
+            for (int i = 0; i < notes.size(); i++) {
+            System.out.println(notes.get(i));           
+            }
+        } else {
+            System.out.println("You have no saved notes");
+        }                   
+    }  
     
-    @Override
-    public String toString() {
-        return "Item to be followed: " + description + ", last value: " + myValue + ", needed actions: " + actions;
+    public void deleteNote(int key) throws SQLException {
+        int num = howManyNotes();
+        if (num >= key) {
+            miDao.delete(key);            
+        } else {
+            System.out.println("Key not found.");
+        }       
     }
     
+    public int howManyNotes() {
+        int rowCount = this.jdbcTemplate.queryForObject("SELECT COUNT(*) from Monitor", Integer.class);
+        return rowCount;
+    }
 }

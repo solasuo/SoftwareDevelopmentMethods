@@ -1,5 +1,5 @@
 
-package ot.Bloodecode;
+package bloodecodetest;
 
 import bloodecode.Solver;
 import org.junit.Before;

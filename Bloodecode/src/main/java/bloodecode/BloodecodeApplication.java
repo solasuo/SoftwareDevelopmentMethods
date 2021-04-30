@@ -13,11 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
-public class BloodecodeApplication implements CommandLineRunner {    
-    
+public class BloodecodeApplication implements CommandLineRunner {        
    
     public static void main(String[] args) {
-        createTable();
         SpringApplication.run(BloodecodeApplication.class, args);
     }
     
@@ -29,11 +27,12 @@ public class BloodecodeApplication implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
+        createTable();
         Scanner reader = new Scanner(System.in);
         textUi.start(reader);
     }      
     
-    public static void createTable() {     
+    public void createTable() {     
         try (Connection conn = DriverManager.getConnection("jdbc:h2:./selfmonitor", "sa", "")) {
             conn.prepareStatement("DROP TABLE Monitor IF EXISTS;").executeUpdate();            
             conn.prepareStatement("CREATE TABLE Monitor (\n"
@@ -42,9 +41,9 @@ public class BloodecodeApplication implements CommandLineRunner {
                     + " myvalue INTEGER,\n"
                     + " actions VARCHAR(255)\n"
                     + ");").executeUpdate();
+            System.out.println("created");
         } catch (SQLException ex) {
             Logger.getLogger(BloodecodeApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-   
+    }       
 }
