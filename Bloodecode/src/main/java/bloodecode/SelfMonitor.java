@@ -40,7 +40,7 @@ public class SelfMonitor  {
         List notes = miDao.list();
         if (notes.size() > 0) {
             for (int i = 0; i < notes.size(); i++) {
-            System.out.println(notes.get(i));           
+                System.out.println(notes.get(i));           
             }
         } else {
             System.out.println("You have no saved notes");

@@ -1,11 +1,11 @@
-Abbreviation;Meaning;Normal range
-B-LEUK;total white blood cell count;3.4–8.2 * 10^9/l
-B-HB;haemoglobin;women 117–155 g/l, men 134–167 g/l
-B-HKR;haematocrit, volume percentage of red blood cells in blood;women 35–46 %, men 39–50 %
-B-ERYT;erythrocyte or red blood cell count;women 3.90–5.20 * 10^12/l, men 4.25–5.70 * 10^12/l
-E-MCV;mean corpuscular volume of red cells;82–98 fl
-E-RDW;red blood cell distribution width;women below 15 %, men below 14 %
-E-MCH;mean red blood cell haemoglobin mass;27–33 pg/cell
-E-MCHC;mean corpuscular haemoglobin concentration in red blood cells;320–355 g/l
-B-TROM;thrombocyte or blood cell platelet count;150–360 x 109/l
-UNKNOWN;this blood item is not supported yet;ask your doctor
+Abbreviation;Meaning;Normal range;Indication low;Indication high
+B-LEUK;total white blood cell count;3.4–8.2 * 10^9/l;Bone marrow diseases, autoimmune disorders, cancer treatment, viral or bacterial infection;Bone marrow diseases, autoimmune disorders, allergies, stress, smoking, pregnancy
+B-HB;haemoglobin;women 117–155 g/l, men 134–167 g/l;anemia, lymphomas, inflammatory bowel disease, heavy menstrual bleeding;living at high altitudes, smoking, heart or lung disesase
+B-HKR;haematocrit, volume percentage of red blood cells in blood;women 35–46 %, men 39–50 %;over hydration, nutritional deficiences, blood loss, leukemia, lead poisoning;dehydration, smoking, tumors, lung disesase, blood doping
+B-ERYT;erythrocyte or red blood cell count;women 3.90–5.20 * 10^12/l, men 4.25–5.70 * 10^12/l;anemia, malnutrition, over hydration, hemolysis;dehydration, smoking, congenital heart disease
+E-MCV;mean corpuscular volume of red cells;82–98 fl;iron deficiency anemia, thalassemia;vitamin B12 or folate deficiency, liver disease, alcoholism, hypothyroidism
+E-RDW;red blood cell distribution width;women below 15 %, men below 14 %;small red blood cell count;vitamin B12 or folate deficiency, liver disease, hemolytic anemia
+E-MCH;mean red blood cell haemoglobin mass;27–33 pg/cell;iron deficiency anemia, thalassemia;vitamin B12 or folate deficiency, liver disease, alcoholism, hypothyroidism
+E-MCHC;mean corpuscular haemoglobin concentration in red blood cells;320–355 g/l;low mean corpuscular volume of red cells, iron deficiency anemia, thalassemia;autoimmune hemolytic anemia, burn patients, hereditary spherocytosis
+B-TROM;thrombocyte or blood cell platelet count;150–400 x 10^9/l;aplastic anemia, vitamin B12 or folate deficiency, leukemia, alcoholism, sepsis;cancer, recent spleen removal, allergic reaction, inflammation
+UNKNOWN;this blood item is not supported yet;ask your doctor;ask your doctor, this item is not supported yet;ask your doctor

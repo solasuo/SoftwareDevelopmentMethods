@@ -21,4 +21,5 @@
 | 25.4. | 9.0 | Adding more UI functions. Troubleshooting tests |
 | 27.4.	| 4.0 | Troubleshooting tests |
 | 30.4. | 5.0 | Adding more UI functions. Troubleshooting tests |
-|Total  | 78.0 |                   |
+| 1.5.  | 6.0 | Adding findCauses() function. Making pre-release. Updating documentation | 
+|Total  | 82.0 |                   |

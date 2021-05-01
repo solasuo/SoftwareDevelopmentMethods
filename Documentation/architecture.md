@@ -1,1 +1,2 @@
-<img src="ClassDiagram.png" />
+<img src="Pictures/ClassDiagram.png" />
+<img src="Pictures/AddNote.png" />

@@ -25,7 +25,7 @@ public class Solver {
     public void itemize() {
         for (int i = 1; i < rows.size(); i++) {
             rowItems = rows.get(i).split(";");
-            BloodItem item = new BloodItem(rowItems[0], rowItems[1], rowItems[2]);
+            BloodItem item = new BloodItem(rowItems[0], rowItems[1], rowItems[2], rowItems[3], rowItems[4]);
             bloodItems.put(rowItems[0].toUpperCase(), item);
         }
     }
@@ -36,5 +36,15 @@ public class Solver {
         } else {
             return (bloodItems.get("UNKNOWN"));
         }
+    }
+    
+    public String findCauses(String abb) {
+        BloodItem item;
+        if (bloodItems.containsKey(abb.toUpperCase())) {
+            item = bloodItems.get(abb.toUpperCase());
+        } else {
+            item = bloodItems.get("UNKNOWN");
+        }      
+        return "Reasons for low values: " + item.getLow() + ". Reasons for high values: " + item.getHigh();
     }
 }

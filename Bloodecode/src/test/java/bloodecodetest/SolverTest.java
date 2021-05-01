@@ -1,12 +1,19 @@
 
 package bloodecodetest;
 
+import bloodecode.BloodItem;
 import bloodecode.Solver;
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SolverTest {
+
+    public ArrayList<String> rows;
+    public String[] rowItems;
+    public HashMap<String, BloodItem> bloodItems;
     
     Solver solver;      
    
@@ -25,4 +32,15 @@ public class SolverTest {
     public void itemDescriptionIsCorrect() {
         assertEquals("thrombocyte or blood cell platelet count", solver.findMeaning("b-trom").getExplanation());
     }    
+    
+    @Test 
+    public void noErrorForUnknownItems() {
+        BloodItem result = solver.findMeaning("HIV");
+        assertEquals("UNKNOWN: this blood item is not supported yet. Normal range: ask your doctor", result.toString());
+    }
+    
+    @Test
+    public void noErrorForEmptySearch() {
+        assertEquals("Reasons for low values: ask your doctor, this item is not supported yet. Reasons for high values: ask your doctor", solver.findCauses(" "));
+    }
 }
