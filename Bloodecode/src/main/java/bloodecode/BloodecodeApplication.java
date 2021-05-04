@@ -1,5 +1,6 @@
 package bloodecode;
 
+import bloodecode.app.TextUI;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,6 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+/**
+ * Includes main class, which starts the application and component scanning.
+ */
 @SpringBootApplication
 public class BloodecodeApplication implements CommandLineRunner {        
    
@@ -25,6 +29,12 @@ public class BloodecodeApplication implements CommandLineRunner {
     @Autowired
     JdbcTemplate jdbctemplate;
     
+    /**
+     * Calls the method for initiating database, creates a scanner and
+     * starts the user interface.
+     * @param args
+     * @throws Exception 
+     */
     @Override
     public void run(String... args) throws Exception {
         createTable();
@@ -32,6 +42,10 @@ public class BloodecodeApplication implements CommandLineRunner {
         textUi.start(reader);
     }      
     
+    /**
+     * Connects to H2 database and creates a table called Monitor for 
+     * inserting notes.
+     */
     public void createTable() {     
         try (Connection conn = DriverManager.getConnection("jdbc:h2:./selfmonitor", "sa", "")) {
             conn.prepareStatement("DROP TABLE Monitor IF EXISTS;").executeUpdate();            

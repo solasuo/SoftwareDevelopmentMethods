@@ -1,4 +1,4 @@
-package bloodecode;
+package bloodecode.app;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -12,8 +12,7 @@ public class TextUI {
     JdbcTemplate jdbctemplate;  
     
     @Autowired
-    SelfMonitor selfmonitor;
-    
+    SelfMonitor selfmonitor;    
   
     public void start(Scanner reader) throws SQLException {
         System.out.println("The application currently supports basic blood count tests: "

@@ -1,8 +1,8 @@
 
 package bloodecodetest;
 
-import bloodecode.BloodItem;
-import bloodecode.Solver;
+import bloodecode.app.BloodItem;
+import bloodecode.app.Solver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.junit.Before;

@@ -1,7 +1,7 @@
 
 package bloodecodetest;
 
-import bloodecode.MonitoredItem;
+import bloodecode.app.MonitoredItem;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

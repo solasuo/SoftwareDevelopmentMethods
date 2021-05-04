@@ -22,4 +22,6 @@
 | 27.4.	| 4.0 | Troubleshooting tests |
 | 30.4. | 5.0 | Adding more UI functions. Troubleshooting tests |
 | 1.5.  | 6.0 | Adding findCauses() function. Making pre-release. Updating documentation | 
-|Total  | 82.0 |                   |
+| 2.5.  | 3.0 | Trying different ways to test |
+| 4.5.  | 7.0 | Writing Javadoc and Architecture. Changing the project's package structure. New release |
+|Total  | 92.0 |                   |

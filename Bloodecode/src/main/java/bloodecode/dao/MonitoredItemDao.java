@@ -1,5 +1,6 @@
-package bloodecode;
+package bloodecode.dao;
 
+import bloodecode.app.MonitoredItem;
 import java.sql.SQLException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +8,15 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+/**
+ * Acts as an interface to the database
+ */
 @Component
 public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
-    
+    JdbcTemplate jdbcTemplate;    
+   
     @Override
     public void create(MonitoredItem item) throws SQLException {
         jdbcTemplate.update("INSERT INTO Monitor"
@@ -20,7 +24,8 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
             + " VALUES (?, ?, ?)",
             item.getDescription(),
             item.getMyValue(), 
-            item.getActions());        
+            item.getActions());   
+        System.out.println("created item");
     }
 
     @Override

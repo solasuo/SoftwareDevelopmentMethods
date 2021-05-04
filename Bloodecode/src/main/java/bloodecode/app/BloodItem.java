@@ -1,5 +1,9 @@
-package bloodecode;
+package bloodecode.app;
 
+/**
+ * BloodItem represents a single measurement of a blood test,
+ * such as haemoglobin or white blood cell count.
+ */
 public class BloodItem {
     public String abbreviation;
     public String explanation;

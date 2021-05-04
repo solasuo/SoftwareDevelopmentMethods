@@ -1,5 +1,6 @@
 
-package bloodecode;
+package bloodecode.dao;
+
 import java.sql.SQLException;
 import java.util.List;
 
