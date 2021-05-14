@@ -1,8 +1,13 @@
 package bloodecode.app;
 
+import bloodecode.BloodecodeApplication;
 import bloodecode.dao.MonitoredItemDao;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -14,14 +19,54 @@ import org.springframework.stereotype.Component;
 public class SelfMonitor  {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;    
-    
-    @Autowired
     MonitoredItemDao miDao;
-    
+ 
     public SelfMonitor() {
 
+    }    
+    
+    /**
+     * Checks how many notes table "Monitor" contains.
+     * @return count done by MonitoredItemDao as int
+     * @throws SQLException 
+     */  
+    public int howManyNotes() throws SQLException {
+        return miDao.count();
     }
+  
+    /**
+     * Connects to H2 database and creates a table called Monitor for 
+     * inserting notes.
+     */         
+    public void createTable() {
+        try (Connection conn = DriverManager.getConnection("jdbc:h2:./selfmonitor", "sa", "")) {
+            conn.prepareStatement("DROP TABLE Monitor IF EXISTS;").executeUpdate();            
+            conn.prepareStatement("CREATE TABLE Monitor (\n"
+                    + " id DOUBLE AUTO_INCREMENT PRIMARY KEY,\n"
+                    + " description VARCHAR(50),\n"
+                    + " myvalue INTEGER,\n"
+                    + " actions VARCHAR(255)\n"
+                    + ");").executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(BloodecodeApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }               
+    }
+    
+    /**
+     * Checks if user input is an integer
+     * @param input User input from TextUi
+     * @return input parsed to int or 999 if input is not valid
+     */
+    public int keyCheck(String input) {
+        try {
+            int key = Integer.parseInt(input);
+            return key;
+        }
+        catch(NumberFormatException e) {            
+            return 999;
+        }
+    }
+    
     /**
      * Adds a new self-monitoring note to the database.
      * @param description  Name or free-form description of the blooditem to be followed. 
@@ -30,9 +75,9 @@ public class SelfMonitor  {
      * @return Confirmation that the item has been added to the database + toString().
      * @throws SQLException 
      */
-    public String addNote(String description, int value, String actions) throws SQLException {
+    public String addNote(String description, double value, String actions) throws SQLException {
         MonitoredItem item = new MonitoredItem(description, value, actions);
-        miDao.create(item);
+        miDao.create(item);        
         return ("Added note: " + item);
     }  
     
@@ -43,8 +88,8 @@ public class SelfMonitor  {
      * @throws SQLException 
      */
     public MonitoredItem readNote(Integer key) throws SQLException {
-        int num = howManyNotes();
-        if (num >= key) {
+        int notes = miDao.count();
+        if (notes >= key) {
             MonitoredItem item = miDao.read(key);
             return item;
         } else {
@@ -74,21 +119,14 @@ public class SelfMonitor  {
      * @param key  Primary key of the note.
      * @throws SQLException 
      */
-    public void deleteNote(int key) throws SQLException {
-        int num = howManyNotes();
-        if (num >= key) {
-            miDao.delete(key);            
+    public String deleteNote(int key) throws SQLException {
+        int notes = miDao.count();
+        if (notes >= key) {
+            miDao.delete(key);
+            return "Note " + key + " deleted.";
         } else {
-            System.out.println("Key not found.");
+            return "Key not found.";
         }       
     }
-    
-    /**
-     * Counts notes in the database.
-     * @return  Number of notes.
-     */
-    public int howManyNotes() {
-        int rowCount = this.jdbcTemplate.queryForObject("SELECT COUNT(*) from Monitor", Integer.class);
-        return rowCount;
-    }
+
 }

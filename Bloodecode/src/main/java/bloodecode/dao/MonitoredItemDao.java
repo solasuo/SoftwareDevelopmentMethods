@@ -16,6 +16,10 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
 
     @Autowired
     JdbcTemplate jdbcTemplate;    
+    
+    public MonitoredItemDao() {
+
+    }
    
     @Override
     public void create(MonitoredItem item) throws SQLException {
@@ -25,11 +29,11 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
             item.getDescription(),
             item.getMyValue(), 
             item.getActions());   
-        System.out.println("created item");
     }
 
     @Override
     public MonitoredItem read(Integer key) throws SQLException {
+        System.out.println("reading item");
         MonitoredItem item = jdbcTemplate.queryForObject("SELECT * FROM Monitor WHERE id = ?",
             new BeanPropertyRowMapper<>(MonitoredItem.class), key);
         return item;
@@ -51,6 +55,11 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
         List notes;
         notes = jdbcTemplate.query("SELECT * FROM Monitor",        
             new BeanPropertyRowMapper<>(MonitoredItem.class));
+        return notes;
+    }
+    
+    public Integer count() throws SQLException {
+        int notes = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Monitor", Integer.class);
         return notes;
     }
 }

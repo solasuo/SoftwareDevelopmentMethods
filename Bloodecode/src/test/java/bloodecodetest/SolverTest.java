@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SolverTest {
 
@@ -15,6 +16,7 @@ public class SolverTest {
     public String[] rowItems;
     public HashMap<String, BloodItem> bloodItems;
     
+    @Autowired
     Solver solver;      
    
     @Before
@@ -25,7 +27,7 @@ public class SolverTest {
     
     @Test
     public void allItemsAreRead() {
-        assertEquals(10, solver.bloodItems.size());
+        assertEquals(16, solver.bloodItems.size());
     }  
     
     @Test

@@ -7,24 +7,24 @@ package bloodecode.app;
 
 public class MonitoredItem {
     String description;
-    Integer myValue;
+    Double myValue;
     String actions;    
     
     public MonitoredItem() {
         
     }
 
-    public MonitoredItem(String description, Integer myValue, String actions) {
+    public MonitoredItem(String description, Double myValue, String actions) {
         this.description = description;
         this.myValue = myValue;
-        this.actions = actions;        
+        this.actions = actions;       
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Integer getMyValue() {
+    public Double getMyValue() {
         return myValue;
     }
 
@@ -36,7 +36,7 @@ public class MonitoredItem {
         this.description = description;
     }
 
-    public void setMyValue(Integer myValue) {
+    public void setMyValue(Double myValue) {
         this.myValue = myValue;
     }
 

@@ -1,5 +1,7 @@
 package bloodecode;
 
+import bloodecode.app.SelfMonitor;
+import bloodecode.app.Solver;
 import bloodecode.app.TextUI;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,37 +29,27 @@ public class BloodecodeApplication implements CommandLineRunner {
     TextUI textUi;
     
     @Autowired
-    JdbcTemplate jdbctemplate;
+    SelfMonitor selfmonitor;
     
     /**
-     * Calls the method for initiating database, creates a scanner and
-     * starts the user interface.
+     * Calls the method for initiating database, prints information for the user,
+     * creates a scanner and starts the user interface.
      * @param args
      * @throws Exception 
      */
     @Override
     public void run(String... args) throws Exception {
-        createTable();
         Scanner reader = new Scanner(System.in);
-        textUi.start(reader);
+        System.out.println("The application currently supports basic blood count "
+                + "tests: B-Leuk, B-Hb, B-Hkr, B-Eryt, E-MCV, E-RDW, E-MCH, "
+                + "E-MCHC and B-Trom, plus fP-Gluk, fP-Kol, fP-Kol-HDL, fP-Kol-LDl,"
+                + " fP-Trigly and P-TSH."
+        );
+        Solver solver = new Solver("codefile.csv"); 
+        solver.itemize();
+        selfmonitor.createTable();
+        textUi.start(reader, solver);
     }      
     
-    /**
-     * Connects to H2 database and creates a table called Monitor for 
-     * inserting notes.
-     */
-    public void createTable() {     
-        try (Connection conn = DriverManager.getConnection("jdbc:h2:./selfmonitor", "sa", "")) {
-            conn.prepareStatement("DROP TABLE Monitor IF EXISTS;").executeUpdate();            
-            conn.prepareStatement("CREATE TABLE Monitor (\n"
-                    + " id INTEGER AUTO_INCREMENT PRIMARY KEY,\n"
-                    + " description VARCHAR(50),\n"
-                    + " myvalue INTEGER,\n"
-                    + " actions VARCHAR(255)\n"
-                    + ");").executeUpdate();
-            System.out.println("created");
-        } catch (SQLException ex) {
-            Logger.getLogger(BloodecodeApplication.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }       
+
 }

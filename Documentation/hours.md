@@ -24,4 +24,10 @@
 | 1.5.  | 6.0 | Adding findCauses() function. Making pre-release. Updating documentation | 
 | 2.5.  | 3.0 | Trying different ways to test |
 | 4.5.  | 7.0 | Writing Javadoc and Architecture. Changing the project's package structure. New release |
-|Total  | 92.0 |                   |
+| 6.5.  | 1.0 | Writing Architecture |
+| 7.5.  | 1.0 | Refactoring UI |
+| 8.5.  | 4.0 | Refactoring UI, testing |
+| 9.5.  | 8.0 | Testing. Adding data to csv file. Writing User manual and Architecture	|
+| 11.5  | 6.0 | Learning how to mock dependencies |
+| 13.5. | 6.0 | learning more about mocking, writing tests with mocks |
+|Total  | 118.0 |                   |

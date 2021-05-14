@@ -8,4 +8,10 @@ E-RDW;red blood cell distribution width;women below 15 %, men below 14 %;small r
 E-MCH;mean red blood cell haemoglobin mass;27–33 pg/cell;iron deficiency anemia, thalassemia;vitamin B12 or folate deficiency, liver disease, alcoholism, hypothyroidism
 E-MCHC;mean corpuscular haemoglobin concentration in red blood cells;320–355 g/l;low mean corpuscular volume of red cells, iron deficiency anemia, thalassemia;autoimmune hemolytic anemia, burn patients, hereditary spherocytosis
 B-TROM;thrombocyte or blood cell platelet count;150–400 x 10^9/l;aplastic anemia, vitamin B12 or folate deficiency, leukemia, alcoholism, sepsis;cancer, recent spleen removal, allergic reaction, inflammation
+fP-Gluk;amount of glocose in blood;4-6 mmol/l;insuline ovedose,liver damage, glycogenosis;diabetes mellitus, stress due to major illness or injury
+fP-Kol;total amount of cholesterol in blood;less than 5 mmol/l;statins, malnutrition, liver disease, hypertyroidism, celiac disesase;overweight, too much animal fat or too little fibre in diet, not enogh exercise, alcoholism
+fP-Kol-HDL;amount of high-density lipoprotein ("good" cholesterol) in blood;1-3 mmol/l (men), 1.2-3.5 mmol/women;abdominal fat, lack of exercise, smoking;thyroid disorders, inflammatory diseases, alcohol consumption
+fP-Kol-LDL;amount of low-density lipoprotein ("bad" cholesterol) in blood;less than 3.0-1.4 mmol/l, depending on individual risk;rare inherited disorders;overweight, too much animal fat or too little fibre in diet, not enough exercise, alcoholism
+fP-Trigly;triglyceride density on blood;less than 1.7 mmol/l;very low-fat diet, fasting, malnutrition, hyperthyroidism;overweight, too much animal fat or too little fibre in diet, lack of exercise exercise, alcoholi consumption
+P-TSH;thyreotropin (thyroid-stimulating hormone) density in blood;0.5-7.5 mU/l, depending on age;hyperthyroidism;hypothyroidism 
 UNKNOWN;this blood item is not supported yet;ask your doctor;ask your doctor, this item is not supported yet;ask your doctor
