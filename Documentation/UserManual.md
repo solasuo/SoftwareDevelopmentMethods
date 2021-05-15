@@ -29,12 +29,12 @@ be used for monitoring one's own blood test results, database should be changed 
 the monitered item and the needed actions are free-form, but value (your value from blood test results) must be a number
 -- otherwise a dummy value will be used.
 
-<img src="Pictures/select3.png />
+<img src="Pictures/select3.png" />
 
 For commands 4 and 6 you need the key of your note. If you don't remember the key, you can list your notes:
 
-<img src="Pictures/select5.png />
+<img src="Pictures/select5.png" />
 
 You may exit from the program with command 0.
 
-<img src="Pictures/shutdown.png" /<
+<img src="Pictures/shutdown.png" />
