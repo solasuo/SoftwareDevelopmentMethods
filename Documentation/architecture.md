@@ -7,6 +7,8 @@ The application has classes in three layers. Class BloodecodeApplication is loca
 
 Package bloodecode.app includes basic functionality of the app, while package bloodecode.dao holds the interface for accessing database.
 
+<img src="Pictures/packageStructure.png" />
+
 ### User Interface ###        
 
 Currently the app does not have a graphic user interface. This is due to the difficulty of combining JavaFx 11 with Spring Boot. User uses the app by 
