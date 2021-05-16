@@ -60,7 +60,7 @@ public class SelfMonitor  {
         try {
             int key = Integer.parseInt(input);
             return key;
-        } catch(NumberFormatException e) {            
+        } catch (NumberFormatException e) {            
             return 999;
         }
     }
