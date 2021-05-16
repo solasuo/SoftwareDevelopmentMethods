@@ -42,10 +42,13 @@ before generating the report cleared the issue.
 Testing the BloodecodeApplication class was tried, with mocks and without, but no sensible solution was found.
 Therefore, the app class lowers the test coverage a bit.
 
-The functions mentoned in requirementSpecification were tried with different types of input.
-All commands mentioned in README.md were tested with jar file.
+The functions mentioned in [requirements specification](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/requirementSpecification.md)
+were tried with different types of input.All commands mentioned in [README](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/README.md)
+function with a repository copied from Github. 
 
 The application was written on a Linux device with Ubuntu 18.04 (University of Helsinki Cubbli distribution).
-Jar (6th week version) was downloaded from Github and tried on a Windows 10 device. Unsurprisingly, the application
-did not run because the device had Java 8 installed. However, course requirements did not expect the app to work on
-a Windows device or with Java 8.
+Jar (6th week version) was downloaded from Github as per [user manual](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/userManual.md)
+and tried on a Windows 10 device. Unsurprisingly, the application did not run because the device had Java 8 installed.
+However, the final jar ran normally on a Linux device and course requirements did not expect the app to work on a Windows device or
+with Java 8.
+

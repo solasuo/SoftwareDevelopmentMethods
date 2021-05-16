@@ -1,17 +1,17 @@
 ## User manual ##
 
-Upload Bloodecode.jar and codefile.csv from Releases. In order to run the app, codefile.csv needs to be in the same folder as Bloodecode.jar.
+Download Bloodecode.jar and codefile.csv from Releases. In order to run the app, codefile.csv needs to be in the same folder as Bloodecode.jar.
 Database files are created by the app itself.
 
-Cd to the directory where the jar is and run
+Cd to the directory where the jar is and run (flie name shortened)
 ```
 java -jar Bloodecode.jar
 ```
-Alternatively, clone the repository, cd to the Bloodecode directory and run 
+Alternatively, download the repository, cd to the Bloodecode directory and run 
 ```
 mvn spring-boot:run
 ```
-The user interface is vey simple: 
+The user interface is very simple: 
 
 <img src="Pictures/start.png" />
 
@@ -19,7 +19,7 @@ The user interface is vey simple:
 
 Commands (0-6) are given by writing them in the terminal. If you give an invalid command, the app will tell you. 
 When starting, the program will print the blood test items that it supports. Commands 1-2 are for searching information
-about these items. When searching, use the appreviations given in the list. The case of letters does not matter. If you
+about these items. When searching, use the abbreviations given in the list. The case of letters does not matter. If you
 search for an item that is not supported, the app will tell you.
 
 <img src="Pictures/select1.png" />  

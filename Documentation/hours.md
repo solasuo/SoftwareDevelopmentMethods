@@ -32,4 +32,5 @@
 | 13.5. | 6.0 | learning more about mocking, writing tests with mocks |
 | 14.5. | 7.0 | Writing tests, writing testing report |
 | 15.5. | 8.0 | Improving testing. Writing architecture, updating other documentation |
-|Total  | 133.0 |                   |
+| 16.5. | 4.0 | Final checks, updating documentation |
+|Total  | 137.0 |                   |
