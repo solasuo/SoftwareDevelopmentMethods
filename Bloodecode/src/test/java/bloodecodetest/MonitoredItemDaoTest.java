@@ -7,7 +7,6 @@ import bloodecode.dao.MonitoredItemDao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -33,11 +32,6 @@ public class MonitoredItemDaoTest {
     
     public MonitoredItemDaoTest() {
     }    
-   
-    @Before
-    public void setUp() {
-        selfmonitor.createTable();
-    }   
     
     @Test 
     public void noteIsAdded() throws SQLException {
@@ -73,7 +67,12 @@ public class MonitoredItemDaoTest {
     
     @Test
     public void noteCanBeDeleted() throws SQLException {
-        MonitoredItem chol = new MonitoredItem("Cholesterol", 5.8, "Exercise more");
+        Mockito.when(jdbcTemplate.update(Mockito.anyString(), Mockito.anyInt())).thenAnswer(invocation -> {
+            int key = invocation.getArgument(1);
+            assertEquals(String.valueOf(key), "1");
+            return null;
+        });
+        midao.delete(1);
     }
     
     @Test
@@ -88,5 +87,11 @@ public class MonitoredItemDaoTest {
         assertEquals("Item to be followed: Hb, last value: 109.0, needed actions: Eat rye bread, "
                 + "Item to be followed: Glucose, last value: 6.5, needed actions: Take insuline on time", result.get(0) + ", " +result.get(1));
     }      
+    
+    @Test
+    public void updateNotYetSupported() throws SQLException {
+        MonitoredItem hb = new MonitoredItem("Hb", 145.0, "Stop eating meat");
+        assertEquals("Item to be followed: Hb, last value: 145.0, needed actions: Stop eating meat", midao.update(hb).toString());
+    }
 }    
 

@@ -3,17 +3,11 @@ package bloodecode;
 import bloodecode.app.SelfMonitor;
 import bloodecode.app.Solver;
 import bloodecode.app.TextUI;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * Includes main class, which starts the application and component scanning.
@@ -50,6 +44,4 @@ public class BloodecodeApplication implements CommandLineRunner {
         selfmonitor.createTable();
         textUi.start(reader, solver);
     }      
-    
-
 }

@@ -33,7 +33,6 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
 
     @Override
     public MonitoredItem read(Integer key) throws SQLException {
-        System.out.println("reading item");
         MonitoredItem item = jdbcTemplate.queryForObject("SELECT * FROM Monitor WHERE id = ?",
             new BeanPropertyRowMapper<>(MonitoredItem.class), key);
         return item;
@@ -41,7 +40,8 @@ public class MonitoredItemDao implements Dao<MonitoredItem, Integer> {
     
     @Override
     public MonitoredItem update(MonitoredItem item) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        System.out.println("Please delete the note to be updated and create a new note ");
+        return item;
     }
 
     @Override

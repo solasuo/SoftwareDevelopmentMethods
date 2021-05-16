@@ -4,7 +4,6 @@ package bloodecode.app;
  * MonitoredItem represents a blood test value that the user wants to monitor,
  * such as too low haemoglobin or too high LDL cholesterol.
  */
-
 public class MonitoredItem {
     String description;
     Double myValue;

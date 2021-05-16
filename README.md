@@ -10,9 +10,9 @@ The repository is for study purpose only.
 
 Blood test results can be complicated to interpret. With Bloodecode application users can "decode" the meaning of most common blood test abbreviations
 (note: these may vary by country, the application currently interprets abbreviations used in Finland). A user can also search for reasons for abnormally
-high or low values in blood test results.
+high or low values in blood test results. A user can also monitor their critical values and habits affecting them by adding notes to selfmonitor database.
 
-A user can monitor their critical values by adding notes to selfmonitor database.
+The app is a Spring Boot project with Java 11, Maven and H2 database.
 
 ### Documentation ###
 
@@ -40,9 +40,8 @@ Generate jar
 ```
 mvn package
 ```
-Run jar 
-```
-java -jar Bloodecode.jar
+Note! Running the jar requires codefile.csv at the root of the project. 
+
 ```
 Generate Checkstyle report
 ```

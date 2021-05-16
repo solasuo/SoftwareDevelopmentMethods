@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class TextUI { 
+    
     @Autowired
     JdbcTemplate jdbctemplate;  
     
@@ -45,7 +45,7 @@ public class TextUI {
                 System.out.println("Enter your value");
                 double value = 0;
                 if (reader.hasNextDouble() || reader.hasNextInt()) {
-                   value = Double.parseDouble(reader.nextLine()); 
+                    value = Double.parseDouble(reader.nextLine()); 
                 } else {
                     System.out.println("Not a valid number, a dummy value will be used");
                     reader.nextLine();
@@ -77,19 +77,25 @@ public class TextUI {
                     selfmonitor.deleteNote(key);      
                     System.out.println("Note " + key + " deleted");
                 }
-            } if (command < 0 || command > 6) {
+            } 
+            if (command < 0 || command > 6) {
                 System.out.println("Invalid command, please try again");
             }
         }
     } 
+    
+    /**
+     * Check if the given input is a valid command.
+     * @param input given by the user.
+     * @return command, if input is and integer from 0 to 6.
+     * Otherwise 999.
+     */
     int validateCommand(String input) {
         try {
             int command = Integer.parseInt(input);
             return command;
-        } catch(NumberFormatException e) {
-            return 999;
-            
+        } catch (NumberFormatException e) {
+            return 999;            
         }
-    }
-    
+    }    
 }

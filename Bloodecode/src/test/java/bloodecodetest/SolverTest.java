@@ -23,8 +23,8 @@ public class SolverTest {
     public void setUp() {
         solver = new Solver("codefile.csv");
         solver.itemize();
-    }
-    
+    }    
+     
     @Test
     public void allItemsAreRead() {
         assertEquals(16, solver.bloodItems.size());
@@ -43,6 +43,14 @@ public class SolverTest {
     
     @Test
     public void noErrorForEmptySearch() {
-        assertEquals("Reasons for low values: ask your doctor, this item is not supported yet. Reasons for high values: ask your doctor", solver.findCauses(" "));
+        assertEquals("Reasons for low values: ask your doctor, this item is not supported yet. "
+                + "Reasons for high values: ask your doctor", solver.findCauses(" "));
     }
+    
+    @Test
+    public void causesAreReturned() {
+        assertEquals("Reasons for low values: iron deficiency anemia, thalassemia. Reasons for high values: "
+                + "vitamin B12 or folate deficiency, liver disease, alcoholism, hypothyroidism", solver.findCauses("E-mch"));
+    }
+        
 }

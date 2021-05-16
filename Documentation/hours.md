@@ -30,4 +30,6 @@
 | 9.5.  | 8.0 | Testing. Adding data to csv file. Writing User manual and Architecture	|
 | 11.5  | 6.0 | Learning how to mock dependencies |
 | 13.5. | 6.0 | learning more about mocking, writing tests with mocks |
-|Total  | 118.0 |                   |
+| 14.5. | 7.0 | Writing tests, writing testing report |
+| 15.5. | 8.0 | Improving testing. Writing architecture, updating other documentation |
+|Total  | 133.0 |                   |

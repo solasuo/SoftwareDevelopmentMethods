@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -61,8 +60,7 @@ public class SelfMonitor  {
         try {
             int key = Integer.parseInt(input);
             return key;
-        }
-        catch(NumberFormatException e) {            
+        } catch(NumberFormatException e) {            
             return 999;
         }
     }
@@ -84,17 +82,16 @@ public class SelfMonitor  {
     /**
      * Reads note from the database.
      * @param key  Primary key of the note. 
-     * @return  Saved MonitoredItem
+     * @return  Saved MonitoredItem.toString
      * @throws SQLException 
      */
-    public MonitoredItem readNote(Integer key) throws SQLException {
+    public String readNote(Integer key) throws SQLException {
         int notes = miDao.count();
         if (notes >= key) {
             MonitoredItem item = miDao.read(key);
-            return item;
+            return item.toString();
         } else {
-            System.out.println("Key not found.");
-            return null;
+            return "Key not found.";
         }
     }
     
@@ -128,5 +125,4 @@ public class SelfMonitor  {
             return "Key not found.";
         }       
     }
-
 }

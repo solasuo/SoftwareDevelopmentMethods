@@ -25,7 +25,7 @@ public class Solver {
         try {
             rows = Files.lines(Paths.get(file)).collect(Collectors.toCollection(ArrayList::new));
         } catch (IOException ex) {
-            throw new RuntimeException("Could not read from " + file);
+            System.out.println("Could not read from " + file);
         }
     }  
     

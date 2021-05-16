@@ -18,7 +18,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import org.mockito.junit.MockitoJUnitRunner;
 
-
 @RunWith(MockitoJUnitRunner.class)
 public class SelfMonitorTest {
     
@@ -31,13 +30,14 @@ public class SelfMonitorTest {
     @Before
     public void setUp() {   
         selfmonitor.createTable();
-    }      
+    }    
     
     @Test
     public void invalidKeysAreHandled() {
         assertEquals("999", String.valueOf(selfmonitor.keyCheck("three")));
     }
     
+    @Test
     public void validKeysAreHandled() {
         assertEquals("1", String.valueOf(selfmonitor.keyCheck("1")));
     }
@@ -48,20 +48,24 @@ public class SelfMonitorTest {
     } 
     
     @Test
-    public void itemIsAdded() throws SQLException {
-        Mockito.when(midao.count()).thenReturn(1);
-        selfmonitor.addNote("Hb", 109.0, "Eat rye bread");
-        assertEquals("1", String.valueOf(selfmonitor.howManyNotes()));        
+    public void addingNoteIsConfirmed() throws SQLException {       
+        assertEquals("Added note: Item to be followed: Hb, last value: 109.0, needed actions: Eat rye bread", 
+            selfmonitor.addNote("Hb", 109.0, "Eat rye bread"));               
     }
     
     @Test 
-    public void ItemCanBeRead() throws SQLException {
+    public void noteCanBeRead() throws SQLException {
         MonitoredItem item = new MonitoredItem("Cholesterol", 5.8, "Exercise more");
         Mockito.when(midao.count()).thenReturn(1);
         Mockito.when(midao.read(1)).thenReturn(item);
         selfmonitor.addNote("Cholesterol", 5.8, "Exercise more");
-        MonitoredItem chol = selfmonitor.readNote(1);
-        assertEquals("Item to be followed: Cholesterol, last value: 5.8, needed actions: Exercise more", chol.toString());
+        assertEquals("Item to be followed: Cholesterol, last value: 5.8, needed actions: Exercise more", selfmonitor.readNote(1));
+    }
+
+    @Test 
+    public void noErrorWhenReadingFromEmptyTable() throws SQLException {
+        Mockito.when(midao.count()).thenReturn(0);
+        assertEquals("Key not found.", selfmonitor.readNote(1));               
     }
     
     @Test 
@@ -89,5 +93,11 @@ public class SelfMonitorTest {
         Mockito.when(midao.count()).thenReturn(1);
         selfmonitor.addNote("Glucose", 6.5, "Take insuline on time");
         assertEquals("Note 1 deleted.", selfmonitor.deleteNote(1));
+    }
+    
+    @Test
+    public void noErrorWhenDeletingNonExistingNote() throws SQLException {
+        Mockito.when(midao.count()).thenReturn(2);
+        assertEquals("Key not found.", selfmonitor.deleteNote(3));
     }
 }
