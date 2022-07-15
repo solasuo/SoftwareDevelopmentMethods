@@ -14,15 +14,15 @@ The app is unlikely to run on a Windows device or earlier versions of Java.
 
 #### Documentation ####
 
-[Requirements specification](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/requirementSpecification.md)
+[Requirements specification](https://github.com/solatar/SoftwareDevelopmentMethods/blob/main/Documentation/requirementSpecification.md)
 
-[Architecture](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/architecture.md)
+[Architecture](https://github.com/solatar/SoftwareDevelopmentMethods/blob/main/Documentation/architecture.md)
 
-[Testing report](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/testingReport.md)
+[Testing report](https://github.com/solatar/SoftwareDevelopmentMethods/blob/main/Documentation/testingReport.md)
 
-[User manual](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/userManual.md)
+[User manual](https://github.com/solatar/SoftwareDevelopmentMethods/blob/main/Documentation/userManual.md)
 
-[Spent hours](https://github.com/solasuo/SoftwareDevelopmentMethods/blob/main/Documentation/hours.md)
+[Spent hours](https://github.com/solatar/SoftwareDevelopmentMethods/blob/main/Documentation/hours.md)
 
 #### Terminal commands ####
 
